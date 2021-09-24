@@ -2,9 +2,9 @@ ActiveJob::QueueAdapters::DelayedJobAdapter.singleton_class.prepend(Module.new d
 	def enqueue(job)
 		provider_job = super
 		job.provider_job_id = provider_job.id
-		puts '---' * 10
-		puts "Job ID: #{provider_job_id}"
-		puts '---' * 10
+		# puts '---' * 10
+		# puts "Job ID: #{provider_job_id}"
+		# puts '---' * 10
 
 		provider_job
 	end
