@@ -1,0 +1,28 @@
+<%= form_with(model: appointment) do |form| %>
+  <% if appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='form-row'>
+    <div class='form-row'>
+      <%= form.label 'Start Time'%>
+      <%= form.datetime_select("start_time", default: Time.zone.now) %>
+    </div>
+    <div class='form-row'>
+      <%= form.label 'End Time'%>
+      <%= form.datetime_select("end_time", default: (Time.zone.now + 60)) %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
