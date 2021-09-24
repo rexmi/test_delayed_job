@@ -5,11 +5,11 @@ class SendSmsJob < ApplicationJob
 	end
 
 	def send_text(text, to)
-    account_sid = 'AC7c68156f35d865c9a38d2f4207381e81'
-    auth_token = 'cc38cf9e33d4ac098326741548cd0fd8'
-    
+    account_sid = 'AC5e85d5c0d198f5b5c2888da1d286df72'
+    auth_token = '87b35d02b405db5ba66590a1d86bafd9'
+
     client = Twilio::REST::Client.new(account_sid, auth_token)
-    from = '+19375240113'
+    from = '+17787847858'
 
     client.messages.create(
       from: from,
