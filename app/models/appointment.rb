@@ -16,9 +16,9 @@ class Appointment < ApplicationRecord
 	end
 
 	def create_appt_job
-		job_id = SendSmsJob.delay(run_at: self.end_time + 30).perform_now('hi john').id
+		# job_id = SendSmsJob.delay(run_at: self.end_time + 30).perform_now('hi john').id
 		
-		self.update_column(:job_id, job_id)
+		# self.update_column(:job_id, job_id)
 
 	end
 

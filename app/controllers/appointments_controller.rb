@@ -22,6 +22,8 @@ class AppointmentsController < ApplicationController
   # POST /appointments or /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
+    job_id = SendReminder.new(@appointment.end_time).create_delay_job
+    @appointment.job_id = job_id
 
     respond_to do |format|
       if @appointment.save
